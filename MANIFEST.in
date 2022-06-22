@@ -1,0 +1,2 @@
+include cropsiss/templates/*
+include entry_points.cfg
