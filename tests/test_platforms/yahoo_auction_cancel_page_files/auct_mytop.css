@@ -1,0 +1,730 @@
+@charset "euc-jp";
+/* -----------------------------------------------------------
+CSS Information
+
+ file name:auct_mytop.css
+ author:Yahoo! JAPAN
+ auth level:css/00/user/
+ last updated:2013.11.21
+----------------------------------------------------------- */
+
+/************************************************************************/
+
+/* my auction only */
+
+/************************************************************************/
+body{
+	text-align:center;
+}
+/*---------------------------------------------------------------------------------.wrapper*/
+div.wrapper{
+	width:950px;
+	margin:0 auto 0 auto;
+	padding:0;
+	text-align:left;
+}
+/*---------------------------------------------------------------------------------#modMyNavi*/
+div#modMyNavi{
+	padding:12px 0 15px 0;
+}
+/*---------------------------------------------------------------------------------.SideBoxA*/
+/* reset start */
+div.SideBoxA img,
+div.SideBoxA div,
+div.SideBoxA p,
+div.SideBoxA h2,
+div.SideBoxA ul,
+div.SideBoxA li{
+	margin:0;
+	padding:0;
+	border:0;
+	list-style:none;
+	text-align:left;
+}
+/* reset end */
+div.SideBoxA{
+	width:180px;
+	background:url(/images/auct/template/ui/auc_mod/bg_1015.gif) 0 0 repeat-y;
+}
+div.SideBoxA div.frame{
+	width:180px;
+	padding-bottom:10px;
+	background:url(/images/auct/template/ui/auc_mod/bg_1016.gif) 0 bottom no-repeat;
+}
+div.SideBoxA div.frame div.untHead{
+	width:180px;
+	margin-bottom:12px;
+	background:url(/images/auct/template/ui/auc_mod/bg_1017.gif) 0 0 repeat-y;
+}
+div.SideBoxA div.frame div.untHead h2{
+	width:168px;
+	*width:180px;
+	background:url(/images/auct/template/ui/auc_mod/bg_1018.gif) 0 0 no-repeat;
+	padding:4px 0 2px 12px;
+	*padding:6px 0 2px 12px;
+	font-size:85%;
+}
+/*====================
+	common untBody
+====================*/
+div.SideBoxA div.untBody{
+	font-size:80%;
+}
+div.SideBoxA div.untBody ul{
+	width:155px;
+	*width:167px;
+	padding:0 0 0 12px;
+	line-height:1.35;
+}
+div.SideBoxA div.untBody ul li{
+	margin:0 0 5px 0;
+	padding-left:6px;
+	background:url(/images/auct/template/ui/auc_mod/ic_002.gif) 0 0.55em no-repeat;
+}
+/*====================
+	common untFoot
+====================*/
+div.SideBoxA div.untFoot{
+	padding:0 10px 0 0;
+	*padding:1px 10px 0 0;
+	font-size:80%;
+}
+div.SideBoxA div.untFoot p{
+	text-align:right;
+}
+div.SideBoxA div.untFoot p img{
+	position:relative;
+	top:1px;
+	left:0;
+	margin-right:1px;
+}
+/*---------------------------------------------------------------------------------.SideBoxB*/
+/* reset start */
+div.SideBoxB img,
+div.SideBoxB div,
+div.SideBoxB p,
+div.SideBoxB h2,
+div.SideBoxB h3,
+div.SideBoxB ul,
+div.SideBoxB li{
+	margin:0;
+	padding:0;
+	border:0;
+	list-style:none;
+	text-align:left;
+}
+/* reset end */
+div.SideBoxB{
+	width:300px;
+	background:url(/images/auct/template/ui/auc_mod/bg_1019.gif) 0 0 repeat-y;
+}
+div.SideBoxB div.frame{
+	width:300px;
+	padding-bottom:10px;
+	background:url(/images/auct/template/ui/auc_mod/bg_1020.gif) 0 bottom no-repeat;
+}
+div.SideBoxB div.frame div.untHead{
+	width:300px;
+	margin-bottom:12px;
+	background:url(/images/auct/template/ui/auc_mod/bg_1021.gif) 0 0 repeat-y;
+}
+div.SideBoxB div.frame div.untHead h2{
+	width:288px;
+	*width:300px;
+	background:url(/images/auct/template/ui/auc_mod/bg_1022.gif) 0 0 no-repeat;
+	padding:5px 0 2px 12px;
+	*padding:6px 0 2px 12px;
+	font-size:85%;
+}
+/*====================
+	common untBody
+====================*/
+div.SideBoxB div.untBody{
+	font-size:80%;
+}
+div.SideBoxB div.untBody ul{
+	width:275px;
+	*width:287px;
+	padding:0 0 0 12px;
+	line-height:1.35;
+}
+div.SideBoxB div.untBody ul li{
+	margin:0 0 5px 0;
+	padding-left:6px;
+	background:url(/images/auct/template/ui/auc_mod/ic_002.gif) 0 0.55em no-repeat;
+}
+/*====================
+	common untFoot
+====================*/
+div.SideBoxB div.untFoot{
+	padding:0 10px 0 0;
+	*padding:1px 10px 0 0;
+	font-size:80%;
+}
+div.SideBoxB div.untFoot p{
+	text-align:right;
+}
+div.SideBoxB div.untFoot p img{
+	position:relative;
+	top:1px;
+	left:0;
+	margin-right:1px;
+}
+/*---------------------------------------------------------------------------------#modInfoBox*/
+div#modInfoBox{
+	width:180px;
+	margin:10px 0;
+}
+/*---------------------------------------------------------------------------------#modSaftBox*/
+div#modSaftBox{
+	width:180px;
+	margin-bottom:10px;
+}
+div#modSaftBox h2{
+	padding:5px 0 2px 12px;
+	*padding:6px 0 2px 12px;
+}
+/*---------------------------------------------------------------------------------.contents*/
+div.contents{
+	margin:0 10px;
+	width:450px;
+}
+/*===========================
+	reset
+===========================*/
+div.contents h2,
+div.contents div,
+div.contents p,
+div.contents dl,
+div.contents dt,
+div.contents dd{
+	margin:0;
+	padding:0;
+	font-size:100%;
+}
+/*===========================
+	h2
+===========================*/
+div.contents h2{
+	border-style:solid;
+	border-color:#ffcc33;
+	border-width:0 0 1px 6px;
+	padding:1px 0 3px 5px;
+	*padding:2px 0 2px 5px;
+}
+div.contents p.decTxt01{
+	font-size:80%;
+	line-height:1.3;
+	margin-top:3px;
+	*margin-top:2px;
+}
+/*---------------------------------------------------------------------------------#modFcn*/
+div#modFcn{
+	width:100%;
+	margin-top:7px;
+}
+/*===========================
+	untBody
+===========================*/
+div#modFcn div.untBody{
+	width:100%;
+	margin-bottom:10px;
+	*display:inline-block;
+}
+div#modFcn div.untBody:after{
+	content:".";
+	display:block;
+	clear:both;
+	height:0;
+	visibility:hidden;
+}
+/*--------------------------
+	pts
+--------------------------*/
+div#modFcn div.untBody div.pts01{
+	width:50%;
+	*width:49.9%;
+	float:left;
+}
+div#modFcn div.untBody div.pts02{
+	width:50%;
+	*width:49.9%;
+	float:right;
+}
+div#modFcn div.untBody div.pts01 div.decBg01{
+	padding-right:5px;
+}
+div#modFcn div.untBody div.pts02 div.decBg01{
+	padding-left:5px;
+}
+div#modFcn div.untBody div.decBg01 p{
+	background-color:#eeeeee;
+	border:solid 1px #999999;
+	text-align:center;
+	padding:5px 0 4px 0;
+	*padding:5px 0 5px 0;
+	font-weight:bold;
+	line-height:1;
+}
+div#modFcn div.untBody div.decBg01 p a{
+	vertical-align:top;
+}
+/*---------------------------------------------------------------------------------#modStlm*/
+div#modStlm{
+	width:100%;
+}
+/*===========================
+	dl
+===========================*/
+div#modStlm dl{
+	margin-top:10px;
+}
+div#modStlm dt{
+	background-color:#eeeeee;
+	border:solid 1px #999999;
+	text-align:center;
+	padding:5px 0 4px 0;
+	*padding:5px 0 5px 0;
+	font-weight:bold;
+	line-height:1;
+}
+div#modStlm dt a{
+	vertical-align:top;
+}
+div#modStlm dd{
+	padding:2px 0 12px 0;
+	font-size:80%;
+	line-height:1.3;
+}
+
+/*---------------------------------------------------------------------------------#modMyBox*/
+div#modMyBox{
+	width:444px;
+	*width:450px;
+	padding:3px;
+	margin-bottom:10px;
+	background-color:#fed24c;
+	font-size:80%;
+}
+/*---------------------------------------------------------------------------------#modMyBoxInfo*/
+div#modMyBoxInfo div,
+div#modMyBoxInfo p,
+div#modMyBoxInfo ul,
+div#modMyBoxInfo li,
+div#modMyBoxInfo h2{
+	margin:0;
+	padding:0;
+	list-style:none;
+	border:none;
+}
+div#modMyBoxInfo{
+	width:440px;
+	*width:442px;
+	border:solid 1px #cccccc;
+	background-color:#ffffff;
+	padding:1px 1px 0 1px;
+}
+/*===========================
+	untHead
+===========================*/
+div#modMyBoxInfo div.untHead{
+	width:430px;
+	background:url(/images/auct/template/ui/auc_mod/bg_4000.gif) 0 0 repeat-x;
+	padding:4px 5px 2px 5px;
+	*width:440px;
+	*display:inline-block;
+}
+div#modMyBoxInfo div.untHead:after{
+	content:".";
+	display:block;
+	clear:both;
+	font-size:0;
+	height:0;
+	visibility:hidden;
+}
+div#modMyBoxInfo div.untHead h2{
+	font-size:126%;
+	line-height:1.2;
+	background:url(/images/auct/template/ui/auc_mod/ic_4001.gif) 0 0 no-repeat;
+}
+/*--------------------------
+	framework
+--------------------------*/
+div#modMyBoxInfo div.untHead div.wrLeft{
+	margin:0;
+	padding:0;
+	float:left;
+	width:370px;
+}
+div#modMyBoxInfo div.untHead div.wrRight{
+	margin:0;
+	padding:1px 0 0 0;
+	float:left;
+	width:60px;
+}
+/*--------------
+	h2
+----------------*/
+div#modMyBoxInfo div.untHead h2{
+	font-weight:bold;
+	background-position:0 1px;
+	padding:0 0 0 7px;
+}
+/*===========================
+	untBody
+===========================*/
+div#modMyBoxInfo div.untBody{
+	width:420px;
+	padding:7px 10px 1px 10px;
+	*width:440px;
+	*padding:7px 10px 2px 10px;
+}
+/*--------------------------
+	ul
+--------------------------*/
+div#modMyBoxInfo div.untBody li{
+	line-height:1.35;
+	background:url(/images/auct/template/ui/auc_mod/ic_4002.gif) 0 0.35em no-repeat;
+	*background-position:0 0.4em;
+	padding:0 0 0 15px;
+	margin-bottom:4px;
+}
+/*===========================
+	untFoot
+===========================*/
+div#modMyBoxInfo div.untFoot{
+	padding:0 4px 0 10px;
+	*padding:0 2px 0 10px;
+	*display:inline-block;
+}
+div#modMyBoxInfo div.untFoot:after{
+	content:".";
+	display:block;
+	clear:both;
+	font-size:0;
+	height:0;
+	visibility:hidden;
+}
+div#modMyBoxInfo div.untFoot p{
+	float:right;
+	background:url(/images/auct/template/ui/auc_mod/ic_4003.gif) 0 0.2em no-repeat;
+	*background-position:0 0.15em;
+	padding:0 0 4px 15px;
+	*padding:0 0 3px 15px;
+}
+/*---------------------------------------------------------------------------------#modRecoBox(rewrite)*/
+div#modRecoBox,
+div#modRecoBox div.untHead table{
+	color:#000000;
+}
+/*---------------------------------------------------------------------------------#modAdLrecArea*/
+div#modAdLrecArea{
+	width:300px;
+	margin-bottom:10px;
+}
+div#modAdLrecArea p.decTxt01{
+	margin:0;
+	padding:6px 0 6px 0;
+	*padding:8px 0 6px 0;
+	font-size:80%;
+	text-align:center;
+}
+div#modAdLrecArea object,
+div#modAdLrecArea embed,
+div#modAdLrecArea img{
+	vertical-align:top;
+}
+/*---------------------------------------------------------------------------------#modMblBox*/
+div#modMblBox{
+	width:300px;
+	margin-bottom:10px;
+}
+/*====================
+	common
+====================*/
+div#modMblBox h3{
+	font-weight:bold;
+	padding:1px 0 0 0;
+	*padding:2px 0 0 0;
+	font-size:100%;
+}
+/*====================
+	untBody
+====================*/
+div#modMblBox div.untBody{
+	padding:0 0 0 12px;
+}
+div#modMblBox div.SideBoxB div.frame{
+	padding-bottom:3px;
+	*padding-bottom:1px;
+}
+/*====================
+	pts01
+====================*/
+div#modMblBox div.untBody div.pts01{
+	width:278px;
+	padding-bottom:10px;
+	border-bottom:solid 1px #dddddd;
+}
+/*--------------------
+	pts01 pts01a
+--------------------*/
+div#modMblBox div.untBody div.pts01a{
+	width:278px;
+	padding-top:8px;
+	*display:inline-block;
+}
+div#modMblBox div.untBody div.pts01a:after{
+	content:".";
+	display:block;
+	clear:both;
+	height:0;
+	visibility:hidden;
+}
+/*--------------------
+	pts01a scr01
+--------------------*/
+div#modMblBox div.untBody div.pts01a div.scr01{
+	width:76px;
+	float:left;
+}
+div#modMblBox div.untBody div.pts01a div.scr01 p{
+	border:solid 1px #dddddd;
+}
+/*--------------------
+	pts01a scr02
+--------------------*/
+div#modMblBox div.untBody div.pts01a div.scr02{
+	width:202px;
+	float:left;
+}
+/*--------------------
+	pts01a scr02 ul
+--------------------*/
+div#modMblBox div.untBody div.pts01a div.scr02 ul{
+	width:190px;
+	padding:0 0 0 10px;
+}
+/*====================
+	pts02
+====================*/
+div#modMblBox div.untBody div.pts02{
+	width:278px;
+	padding:6px 0 6px 0;
+	*padding:7px 0 7px 0;
+}
+/*--------------------
+	pts02 pts02a
+--------------------*/
+div#modMblBox div.untBody p.pts02a img{
+	position:relative;
+	top:3px;
+	left:0;
+	margin-right:4px;
+}
+/*--------------------
+	pts02 pts02b
+--------------------*/
+div#modMblBox div.untBody p.pts02b{
+	line-height:1.35;
+	padding:4px 0 0 0;
+}
+
+/*---------------------------------------------------------------------------------.modPymntBouncer*/
+
+/*--------------------
+	ReSet
+--------------------*/
+.modPymntBouncer div, .modPymntBouncer ul, .modPymntBouncer li, .modPymntBouncer p, .modPymntBouncer dl, .modPymntBouncer dt, .modPymntBouncer dd{
+margin: 0;
+padding: 0;
+}
+.modPymntBouncer ul li {
+list-style: none;
+}
+.modPymntBouncer{
+	padding:0 50px;
+	margin:0 auto 30px;
+ width:650px;	/* for IE6-IE7*/
+}
+.modPymntBouncer h1.ptsItemName{
+	font-size:115%;
+	padding:25px 0;
+}
+.modPymntBouncer table.ptsMsgTbl .ptsMsgArea p{
+	line-height:1.5;
+	margin:0 0 30px;
+}
+.modPymntBouncer .decSubTxt{
+	font-size:80%;
+}
+.modPymntBouncer .ptsBtnWrp form{
+	margin:0;
+}
+.modPymntBouncer .ptsBtnWrp input{
+	width:8em;
+	padding:2px 5px;
+	margin:0 10px;
+	cursor:pointer;
+}
+.modPymntBouncer .decNotesList{
+	margin-bottom:40px;
+}
+.modPymntBouncer .decNotesList li{
+	text-indent:-1em;
+	padding-left:1em;
+	line-height:1.5;
+	font-size:80%;
+	margin-bottom:0.5em;
+}
+
+/*--------------------
+	acMdbidderDel
+--------------------*/
+
+#acMdbidderDel {
+  text-align: center;
+  width: 100%;
+}
+
+#acMdbidderDel .untBodyC{
+  color: #333;
+  font-size: 16px;
+  line-height: 1.9;
+  text-align: left;
+  width: 680px;
+  margin: 30px auto 52px;
+}
+
+#acMdbidderDel p,
+#acMdbidderDel h2,
+#acMdbidderDel ul,
+#acMdbidderDel li{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+#acMdbidderDel a:link,
+#acMdbidderDel a:hover,
+#acMdbidderDel a:active,
+#acMdbidderDel a:visited{
+  text-decoration: none;
+}
+
+#acMdbidderDel a:link,
+#acMdbidderDel a:visited{
+  color: #4948eb;
+}
+
+#acMdbidderDel .decFont12{
+  font-size: 75%;
+  line-height: 1.7;
+}
+
+#acMdbidderDel .decFont14{
+  font-size: 88%;
+}
+
+#acMdbidderDel .decRed{
+  color: #f00;
+}
+
+#acMdbidderDel .decM30{
+  margin: 30px 0;
+}
+
+#acMdbidderDel .decML30{
+  margin-left: 30px;
+}
+
+#acMdbidderDel .decAlignC{
+  text-align: center;
+}
+
+#acMdbidderDel .decBgWarn{
+  background-color: #fff8d6;
+}
+
+#acMdbidderDel .ptsGrayTbl{
+  border-collapse: collapse;
+  line-height: 1.4em;
+  font-weight: normal;
+  color: #333;
+  font-size: 100%;
+  width: 100%;
+  margin: 28px 0;
+}
+
+#acMdbidderDel .ptsGrayTbl th,
+#acMdbidderDel .ptsGrayTbl td{
+  border: 1px solid #bfbfbf;
+  padding: 16px 14px;
+  vertical-align: top;
+  text-align: left;
+  font-weight: normal;
+}
+
+#acMdbidderDel .ptsGrayTbl th{
+  background-color: #e5e5e5;
+  white-space: nowrap;
+}
+
+#acMdbidderDel .ptsBlacklist h2{
+  font-size: 88%;
+  font-weight: normal;
+}
+
+#acMdbidderDel .decWarn2{
+  background: url("/images/warn2.gif") no-repeat 0 2px;
+  padding-left: 20px;
+}
+
+#acMdbidderDel .ptsBtn{
+  width: 100%;
+  text-align: center;
+}
+
+#acMdbidderDel .ptsBtn li{
+  display: inline-block;
+  *display: inline;
+}
+
+#acMdbidderDel .libBtnGrayL{
+
+  border: 1px solid #bbb;
+  color: #333;
+  cursor: pointer;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  font-family: "¥á¥¤¥ê¥ª", Meiryo, "¥Ò¥é¥®¥Î³Ñ¥´ Pro W3", "Hiragino Kaku Gothic Pro", "£Í£Ó £Ð¥´¥·¥Ã¥¯", "MS UI Gothic", Helvetica, Arial, sans-serif;
+  background-color: #F5F4EE;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#ECEBE0));
+  background-image: -webkit-linear-gradient(top, #FFFFFF, #ECEBE0);
+  background-image: -moz-linear-gradient(top, #FFFFFF, #ECEBE0);
+  background-image: -ms-linear-gradient(top, #FFFFFF, #ECEBE0);
+  background-image: -o-linear-gradient(top, #FFFFFF, #ECEBE0);
+  background-image: linear-gradient(to bottom, #FFFFFF, #ECEBE0);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#FFFFFF, endColorstr=#ECEBE0);
+  overflow: visible;
+  padding: 10px 0;
+  width: 250px;
+  font-size: 100%;
+}
+
+#acMdbidderDel .btnBidderDel{
+  text-indent: -9999px;
+  white-space: nowrap;
+  overflow: hidden;
+  background: #fff url("/images/auct/template/ui/auc_mod/img/my/btn_bidderdel.png") no-repeat;
+  border: none;
+  width: 285px;
+  height: 62px;
+  cursor: pointer;
+}
+
+/*end*/
