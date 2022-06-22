@@ -1,0 +1,160 @@
+@charset "euc-jp";
+/* -----------------------------------------------------------
+CSS Information
+
+ file name:mod_ss.css
+ author:Yahoo! JAPAN
+ auth level:auct/template/ui/auc_mod/css/00/parts/
+ last updated:2010.4.9
+----------------------------------------------------------- */
+
+/************************************************************/
+
+/* Yahoo! auction settlement only */
+
+/************************************************************/
+
+/*-------------------------------------------------------------------------------#modSsBox*/
+
+/*===========================
+	#modSsBox LIQUID
+===========================*/
+div#modSsBox{
+	margin-bottom: 20px;
+	border: #dddddd 1px solid;
+	font-size: 100%;
+	text-align: center;
+}
+
+div#modSsBox p{
+	margin: 0;
+	padding: 0;
+}
+
+div#modSsBox img{
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+div#modSsBox div.untHead{
+	padding: 8px 5px;
+	background: url(/images/auct/template/ui/auc_mod/bg_ss_01.gif) repeat-x;
+	text-align: left;
+}
+
+div#modSsBox div.untHead p{
+	vertical-align: middle;
+	font-size: 85%;
+	line-height: 1;
+	font-weight: bold;
+}
+
+/*===========================
+	untBodyA 
+===========================*/
+div#modSsBox div.untBodyA{
+	padding: 10px;
+	text-align: left;
+}
+
+div#modSsBox div.untBodyA:after{
+	content: "";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+div#modSsBox div.untBodyA{
+  *display: inline-block;
+}
+
+div#modSsBox div.untBodyA div.pts01{
+	float: left;
+	width: 130px;
+	margin-right: 10px;
+}
+
+div#modSsBox div.untBodyA div.pts02{
+	float: left;
+	text-align: left;
+}
+
+div#modSsBox div.untBodyA div.pts02 dl{
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+}
+
+div#modSsBox div.untBodyA div.pts02 dt{
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+div#modSsBox div.untBodyA div.pts02 dd{
+	margin: 0;
+	padding: 0;
+	font-size: 75%;
+}
+
+div#modSsBox div.untBodyA div.pts02 dd.decBtm{
+	margin-bottom: 15px;
+}
+
+/*===========================
+	untBodyB
+===========================*/
+div#modSsBox div.untBodyB{
+	padding: 10px;
+	text-align: left;
+}
+
+div#modSsBox div.untBodyB dl{
+	margin: 0;
+	padding: 0;
+	line-height: 1;
+}
+
+div#modSsBox div.untBodyB dt{
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+div#modSsBox div.untBodyB dd{
+	margin: 0;
+	padding: 0;
+	font-size: 75%;
+}
+
+div#modSsBox div.untBodyB dd.decBtm{
+	margin-bottom: 15px;
+}
+
+/*--------------------------
+	.decTblRe SOLID ONLY
+--------------------------*/
+table.decTblRe{
+	margin: 0;
+	padding: 0;
+}
+
+table.decTblRe td{
+	margin: 0;
+	padding: 0;
+}
+/*----------------------------------------------------------------------------------------------#modAdSct*/
+#modAdSct{
+	width:100%;
+	font-size:80%;
+	margin:0 0 10px 0;
+	text-align:center;
+	display:block;
+	clear:both;
+}
+#modAdSct p{
+	margin:0 auto;
+	text-align:center;
+	display:block;
+}
+/*end*/
