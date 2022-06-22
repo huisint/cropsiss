@@ -1,0 +1,24 @@
+<p>{{ user }}様</p>
+<p>以下の商品の出品を取り消し中にエラーが発生しました。</p>
+<div>
+  {% if cropsiss_id %}
+    CropsissID: {{ cropsiss_id }} <br>
+  {% endif %}
+  プラットフォーム名: {{ platform_name }} <br>
+  商品ID: {{ item_id }} <br>
+  商品ページ:  {{ selling_page_url }} <br>
+</div>
+<p>
+  以下の項目をご確認ください。
+  <ol>
+    <li>プラットフォーム名（Googleスプレッドシートの列）に間違いはないか</li>
+    <li>IDに入力間違いはないか</li>
+    <li>Cropsissで使用しているブラウザにログイン情報が記録されているか</li>
+    <li>一時的なネットワークトラブルが発生していないか</li>
+  </ol>
+</p>
+<p>
+  問題が頻発する場合はお手数ですが、開発者までお問い合わせください。<br>
+  開発者の連絡先: {{ developer }} <br>
+</p>
+<div>Copyright (c) 2022 Cropsiss All rights reserved</div>
