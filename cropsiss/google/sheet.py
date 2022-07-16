@@ -1,30 +1,31 @@
 # Copyright (c) 2022 Shuhei Nitta. All rights reserved.
-from typing import Literal, Any
+import dataclasses
+import typing as t
 
-from cropsiss.google import base, credentials
+from cropsiss.google import abstract
 
 
-class SpreadsheetAPI(base.BaseAPI):
+@dataclasses.dataclass()
+class SpreadsheetAPI(abstract.AbstractAPI):
 
-    def __init__(
-        self,
-        credentials: credentials.Credentials,
-        version: str = "v4"
-    ) -> None:
-        super().__init__(credentials, version)
+    def __post_init__(self) -> None:
+        super().__init__(self.credentials, self.version or "v4")
 
     @property
     def service_name(self) -> str:
         return "sheets"
 
+    @property
+    def _service(self) -> t.Any:
+        return abstract.build_service(self)
+
     def get_values(
         self,
         spreadsheet_id: str,
         range: str,
-        major_dimension: Literal["ROWS", "COLUMNS"] = "ROWS"
-    ) -> list[list[Any]]:
-        """
-        Get a range of values from a spreadsheet.
+        major_dimension: t.Literal["ROWS", "COLUMNS"] = "ROWS"
+    ) -> list[list[t.Any]]:
+        """Get a range of values from a spreadsheet.
 
         Parameters
         ----------
@@ -56,11 +57,10 @@ class SpreadsheetAPI(base.BaseAPI):
         spreadsheet_id: str,
         range: str,
         values: list[list[str]],
-        major_dimension: Literal["ROWS", "COLUMNS"] = "ROWS",
-        input_option: Literal["RAW", "USER_ENTERED"] = "RAW"
+        major_dimension: t.Literal["ROWS", "COLUMNS"] = "ROWS",
+        input_option: t.Literal["RAW", "USER_ENTERED"] = "RAW"
     ) -> None:
-        """
-        Sets values in a range of a spreadsheet.
+        """Set values in a range of a spreadsheet.
 
         Parameters
         ----------
@@ -95,8 +95,7 @@ class SpreadsheetAPI(base.BaseAPI):
         spreadsheet_id: str,
         range: str
     ) -> None:
-        """
-        Clears values from a spreadsheet.
+        """Clear values from a spreadsheet.
 
         Parameters
         ----------
@@ -118,10 +117,9 @@ class SpreadsheetAPI(base.BaseAPI):
     def batch_update(
         self,
         spreadsheet_id: str,
-        requests: Any
+        requests: t.Any
     ) -> None:
-        """
-        Applies one or more updates to the spreadsheet.
+        """Apply one or more updates to the spreadsheet.
 
         Parameters
         ----------

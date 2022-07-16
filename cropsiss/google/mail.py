@@ -1,22 +1,27 @@
 # Copyright (c) 2022 Shuhei Nitta. All rights reserved.
 import base64
 from email.mime import text
-from typing import Any
+import dataclasses
+import typing as t
 
-from cropsiss.google import base, credentials
+from cropsiss.google import abstract
 
 
-class GmailAPI(base.BaseAPI):
-    def __init__(
-        self,
-        credentials: credentials.Credentials,
-        version: str = "v1"
-    ) -> None:
-        super().__init__(credentials, version)
+@dataclasses.dataclass()
+class GmailAPI(abstract.AbstractAPI):
+    user_id: str = "me"
+    """The user's email address."""
+
+    def __post_init__(self) -> None:
+        super().__init__(self.credentials, self.version or "v1")
 
     @property
     def service_name(self) -> str:
         return "gmail"
+
+    @property
+    def _service(self) -> t.Any:
+        return abstract.build_service(self)
 
     def send_email(
         self,
@@ -24,8 +29,7 @@ class GmailAPI(base.BaseAPI):
         subject: str,
         body: str,
     ) -> None:
-        """
-        Send an e-mail via Gmail.
+        """Send an e-mail via Gmail.
 
         Parameters
         ----------
@@ -50,8 +54,7 @@ class GmailAPI(base.BaseAPI):
         ).execute()
 
     def search_mail(self, query: str = "", max_result: int = 100) -> list[str]:
-        """
-        Get Gmail IDs in the mailbox.
+        """Get Gmail IDs in the mailbox.
 
         Parameters
         ----------
@@ -69,16 +72,15 @@ class GmailAPI(base.BaseAPI):
         --------
         https://developers.google.com/gmail/api/reference/rest/v1/users.messages/list
         """
-        messages: list[Any] = self._service.users().messages().list(
-            userId="me",
+        messages: list[t.Any] = self._service.users().messages().list(
+            userId=self.user_id,
             q=str(query),
             maxResults=max_result
         ).execute().get("messages", [])
         return [message["id"] for message in messages]
 
-    def get_mail(self, mail_id: str) -> dict[str, Any]:
-        """
-        Get the specified Gmail message.
+    def get_mail(self, mail_id: str) -> dict[str, t.Any]:
+        """Get the specified Gmail message.
 
         Parameters
         ----------
@@ -99,9 +101,8 @@ class GmailAPI(base.BaseAPI):
         gmail = self._service.users().messages().get(userId="me", id=mail_id).execute()
         return {str(key): gmail[key] for key in gmail}
 
-    def get_labels(self) -> list[dict[str, Any]]:
-        """
-        Get a list of all labels in the user's mailbox.
+    def get_labels(self) -> list[dict[str, t.Any]]:
+        """Get a list of all labels in the user's mailbox.
 
         Returns
         -------
@@ -113,13 +114,12 @@ class GmailAPI(base.BaseAPI):
         https://developers.google.com/gmail/api/reference/rest/v1/users.labels/list
         """
         labels = self._service.users().labels().list(
-            userId="me"
+            userId=self.user_id
         ).execute().get("labels")
         return [{str(key): label[key] for key in label} for label in labels]
 
-    def create_label(self, label_name: str) -> dict[str, Any]:
-        """
-        Creates a new label.
+    def create_label(self, label_name: str) -> dict[str, t.Any]:
+        """Creates a new label.
 
         Parameters
         ----------
@@ -139,14 +139,13 @@ class GmailAPI(base.BaseAPI):
             "name": label_name
         }
         label = self._service.users().labels().create(
-            userId="me",
+            userId=self.user_id,
             body=body
         ).execute()
         return {str(key): label[key] for key in label}
 
     def add_labels(self, mail_id: str, label_ids: list[str]) -> None:
-        """
-        Add the labels on the specified message.
+        """Add the labels on the specified message.
 
         Parameters
         ----------
@@ -163,14 +162,13 @@ class GmailAPI(base.BaseAPI):
             "addLabelIds": label_ids
         }
         self._service.users().messages().modify(
-            userId="me",
+            userId=self.user_id,
             id=mail_id,
             body=body
         ).execute()
 
     def remove_labels(self, mail_id: str, label_ids: list[str]) -> None:
-        """
-        Remove the labels on the specified message.
+        """Remove the labels on the specified message.
 
         Parameters
         ----------
@@ -187,7 +185,7 @@ class GmailAPI(base.BaseAPI):
             "removeLabelIds": label_ids
         }
         self._service.users().messages().modify(
-            userId="me",
+            userId=self.user_id,
             id=mail_id,
             body=body
         ).execute()

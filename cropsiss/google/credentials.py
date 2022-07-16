@@ -1,6 +1,6 @@
 # Copyright (c) 2022 Shuhei Nitta. All rights reserved.
-from __future__ import annotations
 import os
+import dataclasses
 
 from google.auth.transport import requests
 from google.oauth2 import credentials
@@ -22,11 +22,10 @@ CLIENT_CONFIG = {
 }
 
 
+@dataclasses.dataclass()
 class Credentials:
     _credentials: credentials.Credentials
-
-    def __init__(self, credentials: credentials.Credentials) -> None:
-        self._credentials = credentials
+    """Actual credentials"""
 
     @classmethod
     def new(
@@ -35,9 +34,8 @@ class Credentials:
         client_id: str = "",
         client_secret: str = "",
         run_local_server: bool = True
-    ) -> Credentials:
-        """
-        Create a new Credentials instance for Google API.
+    ) -> "Credentials":
+        """Create a new Credentials instance for Google API.
 
         Parameters
         ----------
@@ -67,9 +65,8 @@ class Credentials:
         return cls(creds)
 
     @classmethod
-    def from_file(cls, filename: str | os.PathLike[str]) -> Credentials:
-        """
-        Create a Credentials instance for Google API from an authorized user json file.
+    def from_file(cls, filename: str | os.PathLike[str]) -> "Credentials":
+        """Create a Credentials instance for Google API from an authorized user json file.
 
         Parameters
         ----------
@@ -95,8 +92,7 @@ class Credentials:
         return cls(creds)
 
     def save(self, filename: str | os.PathLike[str]) -> None:
-        """
-        Save a Credentials instance as a json file.
+        """Save a Credentials instance as a json file.
 
         Parameters
         ----------
@@ -107,7 +103,5 @@ class Credentials:
             f.write(self._credentials.to_json())
 
     def refresh(self) -> None:
-        """
-        Refresh the access token.
-        """
+        """Refresh the access token."""
         self._credentials.refresh(requests.Request())

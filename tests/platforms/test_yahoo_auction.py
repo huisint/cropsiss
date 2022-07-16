@@ -1,13 +1,12 @@
 # Copyright (c) 2022 Shuhei Nitta. All rights reserved.
 from unittest import TestCase
-from threading import Thread
-from http.server import HTTPServer
+import threading
 
 from selenium import webdriver
 
 from cropsiss import exceptions
 from cropsiss.platforms import yahoo_auction
-from tests.test_platforms.http import NoLogHTTPRequestHandler
+from tests.platforms import http
 
 
 class TestYahooAuction_property(TestCase):
@@ -49,22 +48,14 @@ class TestYahooAuction_get_selling_page_url(TestCase):
 
 
 class TestYahooAuction_cancel(TestCase):
-    chrome_options: webdriver.ChromeOptions
-    platform: yahoo_auction.YahooAuction
-    server: HTTPServer
-    httpthread: Thread
+    server: http.server.HTTPServer
+    httpthread: threading.Thread
     port: int = 8080
-    url_base = f"http://localhost:{port}"
 
     @classmethod
     def setUpClass(cls) -> None:
-        options = webdriver.ChromeOptions()
-        options.add_argument("--headless")
-        cls.chrome_options = options
-        cls.platform = yahoo_auction.YahooAuction()
-        cls.platform._implicitly_wait_second = 1
-        cls.server = HTTPServer(("", cls.port), NoLogHTTPRequestHandler)
-        cls.httpthread = Thread(target=cls.server.serve_forever)
+        cls.server = http.create_server(port=cls.port)
+        cls.httpthread = threading.Thread(target=cls.server.serve_forever)
         cls.httpthread.start()
 
     @classmethod
@@ -73,8 +64,16 @@ class TestYahooAuction_cancel(TestCase):
         cls.server.shutdown()
         cls.httpthread.join()
 
+    def setUp(self) -> None:
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless")
+        self.chrome_options = options
+        self.platform = yahoo_auction.YahooAuction()
+        self.platform._implicitly_wait_second = 1
+        self.url_base = f"http://localhost:{self.port}"
+
     def test_url_exists(self) -> None:
-        self.platform.CANCEL_PAGE = self.url_base + "/tests/test_platforms/yahoo_auction_cancel_page.html"
+        self.platform.CANCEL_PAGE = self.url_base + "/tests/platforms/yahoo_auction_cancel_page.html"
         self.platform.cancel("d000000000", self.chrome_options)
 
     def test_url_does_not_exist(self) -> None:
