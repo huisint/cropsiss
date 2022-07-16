@@ -7,7 +7,7 @@ from selenium import webdriver
 
 from cropsiss import exceptions
 from cropsiss.platforms import mercari
-from tests.test_platforms.http import NoLogHTTPRequestHandler
+from tests.platforms.http import NoLogHTTPRequestHandler
 
 
 class TestMercari_property(TestCase):
@@ -68,7 +68,7 @@ class TestMercari_cancel(TestCase):
         cls.httpthread.join()
 
     def test_url_exists(self) -> None:
-        self.platform.EDIT_PAGE = self.url_base + "/tests/test_platforms/mercari_edit_page.html"
+        self.platform.EDIT_PAGE = self.url_base + "/tests/platforms/mercari_edit_page.html"
         self.platform.cancel("m00000000000", self.chrome_options)
 
     def test_url_does_not_exist(self) -> None:

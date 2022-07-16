@@ -7,7 +7,7 @@ from selenium import webdriver
 
 from cropsiss import exceptions
 from cropsiss.platforms import yahoo_auction
-from tests.test_platforms.http import NoLogHTTPRequestHandler
+from tests.platforms.http import NoLogHTTPRequestHandler
 
 
 class TestYahooAuction_property(TestCase):
@@ -74,7 +74,7 @@ class TestYahooAuction_cancel(TestCase):
         cls.httpthread.join()
 
     def test_url_exists(self) -> None:
-        self.platform.CANCEL_PAGE = self.url_base + "/tests/test_platforms/yahoo_auction_cancel_page.html"
+        self.platform.CANCEL_PAGE = self.url_base + "/tests/platforms/yahoo_auction_cancel_page.html"
         self.platform.cancel("d000000000", self.chrome_options)
 
     def test_url_does_not_exist(self) -> None:
