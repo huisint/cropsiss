@@ -1,6 +1,6 @@
 # Cropsiss: Cross Platform Simultaneously Selling System
 
-`Cropsiss` is a command-line-tool to sell items simultaneously over selling platforms.
+***Cropsiss*** is a command-line-tool to sell items simultaneously over selling platforms.
 
 The supported platforms are as follows.
 
@@ -10,7 +10,7 @@ The supported platforms are as follows.
 
 You can manage your selling items on a Google Spreadsheet.
 If your item is sold, the platform sends an email to your Google account.
-`Cropsiss` detects the email to cancel selling of the item on the other platforms, when the item is on the Google Spreadsheet.
+***Cropsiss*** detects the email to cancel selling of the item on the other platforms, when the item is on the Google Spreadsheet.
 
 
 The supported languages are as follows.
@@ -63,7 +63,7 @@ $ cropsiss sheet open  # Open the Spreadsheet
 ```
 
 Enter the IDs assigned by the selling platforms to the Spreadsheet.
-`Cropsiss` treats IDs in a row as those of the same selling item.
+***Cropsiss*** treats IDs in a row as those of the same selling item.
 
 ### Login platform on the browser
 
@@ -76,7 +76,7 @@ On the browser, you can login the selling platforms to save your login status.
 
 ### Make sure Cropsiss can execute the cancellations
 
-We recommend you make sure `Cropsiss` can execute the cancellations.
+We recommend you make sure ***Cropsiss*** can execute the cancellations.
 
 #### For Mercari
 You can suspend the item whose ID assigned by Mercari is `mXXXXXXXXXX` by running:
@@ -101,9 +101,9 @@ $ cropsiss cancel mercari --chrome-args "--headless" mXXXXXXXXXX
 `cropsiss cancel mail` is a command that executes cancellations with the informatioin on the Google Spreadsheet and Gmail messages.
 
 The platforms where you are selling items sends you an e-mail to notify that your item has been sold.
-`Cropsiss` reads the message to cancel selling the same item on the other platforms determined by the information on the Google Spreadsheet.
+***Cropsiss*** reads the message to cancel selling the same item on the other platforms determined by the information on the Google Spreadsheet.
 
-If you run the command regularly by `Cron` on your machine, you can sell an item simultaneously over platforms.
+If you run the command regularly by `cron` on your machine, you can sell an item simultaneously over platforms.
 
 The recommended command is:
 ```shell
