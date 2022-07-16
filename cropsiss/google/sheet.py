@@ -23,8 +23,7 @@ class SpreadsheetAPI(base.BaseAPI):
         range: str,
         major_dimension: Literal["ROWS", "COLUMNS"] = "ROWS"
     ) -> list[list[Any]]:
-        """
-        Get a range of values from a spreadsheet.
+        """Get a range of values from a spreadsheet.
 
         Parameters
         ----------
@@ -59,8 +58,7 @@ class SpreadsheetAPI(base.BaseAPI):
         major_dimension: Literal["ROWS", "COLUMNS"] = "ROWS",
         input_option: Literal["RAW", "USER_ENTERED"] = "RAW"
     ) -> None:
-        """
-        Sets values in a range of a spreadsheet.
+        """Set values in a range of a spreadsheet.
 
         Parameters
         ----------
@@ -95,8 +93,7 @@ class SpreadsheetAPI(base.BaseAPI):
         spreadsheet_id: str,
         range: str
     ) -> None:
-        """
-        Clears values from a spreadsheet.
+        """Clear values from a spreadsheet.
 
         Parameters
         ----------
@@ -120,8 +117,7 @@ class SpreadsheetAPI(base.BaseAPI):
         spreadsheet_id: str,
         requests: Any
     ) -> None:
-        """
-        Applies one or more updates to the spreadsheet.
+        """Apply one or more updates to the spreadsheet.
 
         Parameters
         ----------

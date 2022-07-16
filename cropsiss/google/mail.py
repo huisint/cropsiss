@@ -24,8 +24,7 @@ class GmailAPI(base.BaseAPI):
         subject: str,
         body: str,
     ) -> None:
-        """
-        Send an e-mail via Gmail.
+        """Send an e-mail via Gmail.
 
         Parameters
         ----------
@@ -50,8 +49,7 @@ class GmailAPI(base.BaseAPI):
         ).execute()
 
     def search_mail(self, query: str = "", max_result: int = 100) -> list[str]:
-        """
-        Get Gmail IDs in the mailbox.
+        """Get Gmail IDs in the mailbox.
 
         Parameters
         ----------
@@ -77,8 +75,7 @@ class GmailAPI(base.BaseAPI):
         return [message["id"] for message in messages]
 
     def get_mail(self, mail_id: str) -> dict[str, Any]:
-        """
-        Get the specified Gmail message.
+        """Get the specified Gmail message.
 
         Parameters
         ----------
@@ -100,8 +97,7 @@ class GmailAPI(base.BaseAPI):
         return {str(key): gmail[key] for key in gmail}
 
     def get_labels(self) -> list[dict[str, Any]]:
-        """
-        Get a list of all labels in the user's mailbox.
+        """Get a list of all labels in the user's mailbox.
 
         Returns
         -------
@@ -118,8 +114,7 @@ class GmailAPI(base.BaseAPI):
         return [{str(key): label[key] for key in label} for label in labels]
 
     def create_label(self, label_name: str) -> dict[str, Any]:
-        """
-        Creates a new label.
+        """Creates a new label.
 
         Parameters
         ----------
@@ -145,8 +140,7 @@ class GmailAPI(base.BaseAPI):
         return {str(key): label[key] for key in label}
 
     def add_labels(self, mail_id: str, label_ids: list[str]) -> None:
-        """
-        Add the labels on the specified message.
+        """Add the labels on the specified message.
 
         Parameters
         ----------
@@ -169,8 +163,7 @@ class GmailAPI(base.BaseAPI):
         ).execute()
 
     def remove_labels(self, mail_id: str, label_ids: list[str]) -> None:
-        """
-        Remove the labels on the specified message.
+        """Remove the labels on the specified message.
 
         Parameters
         ----------
