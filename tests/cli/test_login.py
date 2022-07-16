@@ -23,7 +23,9 @@ def tearDownModule() -> None:
 
 @mock.patch("cropsiss.google.credentials.Credentials.from_file")
 class Test_credentials_callback(TestCase):
-    filename = "credentials.json"
+
+    def setUp(self) -> None:
+        self.filename = "credentials.json"
 
     def test(self, from_file_mock: mock.Mock) -> None:
         self.assertEqual(
@@ -60,6 +62,7 @@ class Test_credentials_callback(TestCase):
 @mock.patch("cropsiss.google.credentials.Credentials.new")
 @mock.patch("cropsiss.google.credentials.Credentials.from_file")
 class Test_login(TestCase):
+
     def test_credentials_file_exists(
         self,
         from_file_mock: mock.Mock,
@@ -74,7 +77,7 @@ class Test_login(TestCase):
     def test_credentials_file_does_not_exist(
         self,
         from_file_mock: mock.Mock,
-        new_mock: mock.Mock,
+        new_mock: mock.Mock
     ) -> None:
         from_file_mock.side_effect = FileNotFoundError()
         result = RUNNER.invoke(root.main, [str(login.login.name)], catch_exceptions=False)
@@ -90,7 +93,7 @@ class Test_login(TestCase):
     def test_credentials_file_is_invalid(
         self,
         from_file_mock: mock.Mock,
-        new_mock: mock.Mock,
+        new_mock: mock.Mock
     ) -> None:
         from_file_mock.side_effect = ValueError()
         result = RUNNER.invoke(root.main, [str(login.login.name)], catch_exceptions=False)
@@ -106,7 +109,7 @@ class Test_login(TestCase):
     def test_no_local_server(
         self,
         from_file_mock: mock.Mock,
-        new_mock: mock.Mock,
+        new_mock: mock.Mock
     ) -> None:
         from_file_mock.side_effect = ValueError()
         result = RUNNER.invoke(root.main, [str(login.login.name), "--no-local-server"], catch_exceptions=False)
