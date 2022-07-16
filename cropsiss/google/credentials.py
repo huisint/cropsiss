@@ -1,5 +1,6 @@
 # Copyright (c) 2022 Shuhei Nitta. All rights reserved.
 import os
+import dataclasses
 
 from google.auth.transport import requests
 from google.oauth2 import credentials
@@ -21,11 +22,10 @@ CLIENT_CONFIG = {
 }
 
 
+@dataclasses.dataclass()
 class Credentials:
     _credentials: credentials.Credentials
-
-    def __init__(self, credentials: credentials.Credentials) -> None:
-        self._credentials = credentials
+    """Actual credentials"""
 
     @classmethod
     def new(

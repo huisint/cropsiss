@@ -56,7 +56,9 @@ class TestCredentials_new(TestCase):
 
 @mock.patch("google.oauth2.credentials.Credentials.from_authorized_user_file")
 class TestCredentials_from_file(TestCase):
-    filename = "tests/credentials.json"
+
+    def setUp(self) -> None:
+        self.filename = "tests/credentials.json"
 
     def test_credentials_valid(self, from_authorized_user_file_mock: mock.Mock) -> None:
         creds_mock = from_authorized_user_file_mock.return_value
