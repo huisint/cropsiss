@@ -1,6 +1,6 @@
 # Copyright (c) 2022 Shuhei Nitta. All rights reserved.
 """Cross Platform Simultaneously Selling System"""
-__version__ = "0.0.0"
+__version__ = "0.3.0"
 
 from cropsiss import platforms
 
