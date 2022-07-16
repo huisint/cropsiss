@@ -19,11 +19,12 @@ def tearDownModule() -> None:
 
 
 class TestConfig_load(TestCase):
+
     def setUp(self) -> None:
         self.cfg = config.Config(
             spreadsheet_id="spreadsheetId",
             client_id="clientid",
-            client_secret="cilentsecret",
+            client_secret="cilentsecret"
         )
         self.cfg.save(CONFIG_FILE)
 
@@ -65,7 +66,6 @@ class TestConfig_load(TestCase):
 
 
 class Test_create_new_config(TestCase):
-    saved_message: str
 
     def setUp(self) -> None:
         self.cfg = config.Config(
@@ -147,6 +147,7 @@ class Test_create_new_config(TestCase):
 
 
 class Test_show_config(TestCase):
+
     def setUp(self) -> None:
         self.cfg = config.Config(
             spreadsheet_id="spreadsheetId",
@@ -174,6 +175,7 @@ class Test_show_config(TestCase):
 
 
 class Test_update_config(TestCase):
+
     def setUp(self) -> None:
         self.cfg = config.Config(
             spreadsheet_id="spreadsheetId",

@@ -87,11 +87,11 @@ class Test_update_sheet(TestCase):
 
     def _test_success(
         self,
-        cropsiss_id: str,
-        platform: platforms.AbstractPlatform,
-        value: str,
         get_values_mock: mock.Mock,
-        update_values_mock: mock.Mock
+        update_values_mock: mock.Mock,
+        cropsiss_id: str = "c00001",
+        platform: platforms.AbstractPlatform = cropsiss.PLATFORMS[0],
+        value: str = "m0000000001"
     ) -> None:
         cell = f"{chr(platform.column_index+65)}{int(cropsiss_id.strip('c'))+1}"
         result = RUNNER.invoke(
@@ -118,24 +118,28 @@ class Test_update_sheet(TestCase):
             values=[[value]]
         )
 
-    def test_cropsiss_id_exists(self, get_values_mock: mock.Mock, update_values_mock: mock.Mock) -> None:
+    def test_cropsiss_id_exists(
+        self,
+        get_values_mock: mock.Mock,
+        update_values_mock: mock.Mock
+    ) -> None:
         cropsiss_ids = [f"c{i:05}" for i in range(1, 5)]
         get_values_mock.return_value = [cropsiss_ids]
-        platform = cropsiss.PLATFORMS[0]
-        value = "m0000000001"
         for cropsiss_id in cropsiss_ids:
             get_values_mock.reset_mock()
             update_values_mock.reset_mock()
             with self.subTest(cropsiss_id=cropsiss_id):
                 self._test_success(
-                    cropsiss_id,
-                    platform,
-                    value,
                     get_values_mock,
-                    update_values_mock
+                    update_values_mock,
+                    cropsiss_id=cropsiss_id
                 )
 
-    def test_cropsiss_id_does_not_exist(self, get_values_mock: mock.Mock, update_values_mock: mock.Mock) -> None:
+    def test_cropsiss_id_does_not_exist(
+        self,
+        get_values_mock: mock.Mock,
+        update_values_mock: mock.Mock
+    ) -> None:
         get_values_mock.return_value = [[f"c{i:05}" for i in range(1, 5)]]
         cropsiss_id = "c10000"
         platform = cropsiss.PLATFORMS[0]
@@ -157,35 +161,35 @@ class Test_update_sheet(TestCase):
         self.assertEqual(result.exit_code, 1)
         update_values_mock.assert_not_called()
 
-    def test_platform(self, get_values_mock: mock.Mock, update_values_mock: mock.Mock) -> None:
+    def test_platform(
+        self,
+        get_values_mock: mock.Mock,
+        update_values_mock: mock.Mock
+    ) -> None:
         get_values_mock.return_value = [[f"c{i:05}" for i in range(1, 5)]]
-        cropsiss_id = "c00001"
-        value = "m0000000001"
         for platform in cropsiss.PLATFORMS:
             get_values_mock.reset_mock()
             update_values_mock.reset_mock()
             with self.subTest(platform=platform.name):
                 self._test_success(
-                    cropsiss_id,
-                    platform,
-                    value,
                     get_values_mock,
-                    update_values_mock
+                    update_values_mock,
+                    platform=platform
                 )
 
-    def test_value(self, get_values_mock: mock.Mock, update_values_mock: mock.Mock) -> None:
+    def test_value(
+        self,
+        get_values_mock: mock.Mock,
+        update_values_mock: mock.Mock
+    ) -> None:
         get_values_mock.return_value = [[f"c{i:05}" for i in range(1, 5)]]
-        cropsiss_id = "c00001"
-        platform = cropsiss.PLATFORMS[0]
         values = [f"m{i:09}" for i in range(3)]
         for value in values:
             get_values_mock.reset_mock()
             update_values_mock.reset_mock()
-            with self.subTest(platform=platform.name):
+            with self.subTest(value=value):
                 self._test_success(
-                    cropsiss_id,
-                    platform,
-                    value,
                     get_values_mock,
-                    update_values_mock
+                    update_values_mock,
+                    value=value
                 )

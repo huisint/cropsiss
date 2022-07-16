@@ -8,18 +8,18 @@ from cropsiss.cli import root
 
 
 class TestSystem_notify_success(TestCase):
-    filename = "notify_success.html"
-    subject = "【Cropsiss】出品取り消し"
 
     def setUp(self) -> None:
+        self.filename = "notify_success.html"
+        self.subject = "【Cropsiss】出品取り消し"
         self.gmail_api_mock = mock.Mock(spec_set=google.GmailAPI)
         self.system = root.System(self.gmail_api_mock)
 
     def _test(
         self,
-        mail_to: str,
-        platform: platforms.AbstractPlatform,
-        item_id: str, *,
+        mail_to: str = "",
+        platform: platforms.AbstractPlatform = cropsiss.PLATFORMS[0],
+        item_id: str = "",
         cropsiss_id: str = ""
     ) -> None:
         self.gmail_api_mock.reset_mock()
@@ -41,73 +41,41 @@ class TestSystem_notify_success(TestCase):
 
     def test_mail_to(self) -> None:
         mail_to_list = [f"foo{i}@example.com" for i in range(3)]
-        platform = cropsiss.PLATFORMS[0]
-        item_id = "item_id"
-        cropsiss_id = ""
         for mail_to in mail_to_list:
             with self.subTest(mail_to=mail_to):
-                self._test(
-                    mail_to=mail_to,
-                    platform=platform,
-                    item_id=item_id,
-                    cropsiss_id=cropsiss_id
-                )
+                self._test(mail_to=mail_to)
 
     def test_platform(self) -> None:
-        mail_to = "foo@example.com"
-        item_id = "item_id"
-        cropsiss_id = ""
         for platform in cropsiss.PLATFORMS:
             with self.subTest(platform_name=platform.name):
-                self._test(
-                    mail_to=mail_to,
-                    platform=platform,
-                    item_id=item_id,
-                    cropsiss_id=cropsiss_id
-                )
+                self._test(platform=platform)
 
     def test_item_id(self) -> None:
-        mail_to = "foo@example.com"
-        platform = cropsiss.PLATFORMS[0]
         item_ids = [f"item_id{i}" for i in range(3)]
-        cropsiss_id = ""
         for item_id in item_ids:
             with self.subTest(item_id=item_id):
-                self._test(
-                    mail_to=mail_to,
-                    platform=platform,
-                    item_id=item_id,
-                    cropsiss_id=cropsiss_id
-                )
+                self._test(item_id=item_id)
 
     def test_cropsiss_id(self) -> None:
-        mail_to = "foo@example.com"
-        platform = cropsiss.PLATFORMS[0]
-        item_id = "item_id"
         cropsiss_ids = [f"cropsiss_id{i}" for i in range(3)]
         for cropsiss_id in cropsiss_ids:
             with self.subTest(cropsiss_id=cropsiss_id):
-                self._test(
-                    mail_to=mail_to,
-                    platform=platform,
-                    item_id=item_id,
-                    cropsiss_id=cropsiss_id
-                )
+                self._test(cropsiss_id=cropsiss_id)
 
 
 class TestSystem_notify_fail(TestCase):
-    filename = "notify_fail.html"
-    subject = "【Cropsiss】出品取り消し(エラー)"
 
     def setUp(self) -> None:
+        self.filename = "notify_fail.html"
+        self.subject = "【Cropsiss】出品取り消し(エラー)"
         self.gmail_api_mock = mock.Mock(spec_set=google.GmailAPI)
         self.system = root.System(self.gmail_api_mock)
 
     def _test(
         self,
-        mail_to: str,
-        platform: platforms.AbstractPlatform,
-        item_id: str, *,
+        mail_to: str = "",
+        platform: platforms.AbstractPlatform = cropsiss.PLATFORMS[0],
+        item_id: str = "",
         cropsiss_id: str = ""
     ) -> None:
         self.gmail_api_mock.reset_mock()
@@ -129,55 +97,23 @@ class TestSystem_notify_fail(TestCase):
 
     def test_mail_to(self) -> None:
         mail_to_list = [f"foo{i}@example.com" for i in range(3)]
-        platform = cropsiss.PLATFORMS[0]
-        item_id = "item_id"
-        cropsiss_id = ""
         for mail_to in mail_to_list:
             with self.subTest(mail_to=mail_to):
-                self._test(
-                    mail_to=mail_to,
-                    platform=platform,
-                    item_id=item_id,
-                    cropsiss_id=cropsiss_id
-                )
+                self._test(mail_to=mail_to)
 
     def test_platform(self) -> None:
-        mail_to = "foo@example.com"
-        item_id = "item_id"
-        cropsiss_id = ""
         for platform in cropsiss.PLATFORMS:
             with self.subTest(platform_name=platform.name):
-                self._test(
-                    mail_to=mail_to,
-                    platform=platform,
-                    item_id=item_id,
-                    cropsiss_id=cropsiss_id
-                )
+                self._test(platform=platform)
 
     def test_item_id(self) -> None:
-        mail_to = "foo@example.com"
-        platform = cropsiss.PLATFORMS[0]
         item_ids = [f"item_id{i}" for i in range(3)]
-        cropsiss_id = ""
         for item_id in item_ids:
             with self.subTest(item_id=item_id):
-                self._test(
-                    mail_to=mail_to,
-                    platform=platform,
-                    item_id=item_id,
-                    cropsiss_id=cropsiss_id
-                )
+                self._test(item_id=item_id)
 
     def test_cropsiss_id(self) -> None:
-        mail_to = "foo@example.com"
-        platform = cropsiss.PLATFORMS[0]
-        item_id = "item_id"
         cropsiss_ids = [f"cropsiss_id{i}" for i in range(3)]
         for cropsiss_id in cropsiss_ids:
             with self.subTest(cropsiss_id=cropsiss_id):
-                self._test(
-                    mail_to=mail_to,
-                    platform=platform,
-                    item_id=item_id,
-                    cropsiss_id=cropsiss_id
-                )
+                self._test(cropsiss_id=cropsiss_id)
