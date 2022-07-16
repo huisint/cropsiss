@@ -27,7 +27,7 @@ class GmailAPI(abstract.AbstractAPI):
         self,
         recipient: str,
         subject: str,
-        body: str,
+        body: str
     ) -> None:
         """Send an e-mail via Gmail.
 
