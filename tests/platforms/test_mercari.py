@@ -1,13 +1,12 @@
 # Copyright (c) 2022 Shuhei Nitta. All rights reserved.
 from unittest import TestCase
-from threading import Thread
-from http.server import HTTPServer
+import threading
 
 from selenium import webdriver
 
 from cropsiss import exceptions
 from cropsiss.platforms import mercari
-from tests.platforms.http import NoLogHTTPRequestHandler
+from tests.platforms import http
 
 
 class TestMercari_property(TestCase):
@@ -43,22 +42,14 @@ class TestMercari_get_selling_page_url(TestCase):
 
 
 class TestMercari_cancel(TestCase):
-    chrome_options: webdriver.ChromeOptions
-    platform: mercari.Mercari
-    server: HTTPServer
-    httpthread: Thread
+    server: http.server.HTTPServer
+    httpthread: threading.Thread
     port: int = 8080
-    url_base: str = f"http://localhost:{port}"
 
     @classmethod
     def setUpClass(cls) -> None:
-        options = webdriver.ChromeOptions()
-        options.add_argument("--headless")
-        cls.chrome_options = options
-        cls.platform = mercari.Mercari()
-        cls.platform._implicitly_wait_second = 3
-        cls.server = HTTPServer(("", cls.port), NoLogHTTPRequestHandler)
-        cls.httpthread = Thread(target=cls.server.serve_forever)
+        cls.server = http.create_server(port=cls.port)
+        cls.httpthread = threading.Thread(target=cls.server.serve_forever)
         cls.httpthread.start()
 
     @classmethod
@@ -66,6 +57,14 @@ class TestMercari_cancel(TestCase):
         cls.server.server_close()
         cls.server.shutdown()
         cls.httpthread.join()
+
+    def setUp(self) -> None:
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless")
+        self.chrome_options = options
+        self.platform = mercari.Mercari()
+        self.platform._implicitly_wait_second = 1
+        self.url_base: str = f"http://localhost:{self.port}"
 
     def test_url_exists(self) -> None:
         self.platform.EDIT_PAGE = self.url_base + "/tests/platforms/mercari_edit_page.html"
