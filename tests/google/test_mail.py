@@ -25,6 +25,12 @@ class TestGmailAPI_properties(TestCase):
             )
             build_mock.assert_called_once_with(self.api)
 
+    def test_hashable(self) -> None:
+        try:
+            hash(self.api)
+        except Exception as err:
+            self.fail(err)
+
 
 class TestGmailAPI_send_email(TestCase):
 
