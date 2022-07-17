@@ -191,4 +191,4 @@ class GmailAPI(abstract.AbstractAPI):
         ).execute()
 
     def __hash__(self) -> int:
-        return hash((self.version, self.user_id))
+        return hash((self.service_name, self.version, self.user_id))
